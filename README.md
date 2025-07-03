@@ -1,74 +1,51 @@
-# PySpark Data Engineer - DevDolphins Assignment
+🧩 Overview
+The objective is to simulate and implement a near real-time transaction ingestion and pattern detection system using:
 
-## 🧩 Overview
+PySpark (for production on Azure Databricks)
 
-This project addresses the offline assignment for the **PySpark Data Engineer** role at **DevDolphins**.  
-The objective is to simulate a real-time transaction ingestion and pattern detection system using:
+Azure Blob Storage for intermediate chunk storage and result output
 
-- **PySpark** (targeting deployment on Azure Databricks)
-- **Azure Blob Storage** for intermediate chunk and result storage
-- **PostgreSQL** for maintaining state
-- **Google Drive** as the source of the initial dataset
+PostgreSQL for maintaining incremental state
 
----
+Google Drive as the source for the initial raw dataset
 
-## 🚧 Note on Current GitHub State
+🚧 Current Repository State
+This repository currently contains the offline prototype logic written in Python (pandas) to fully test and validate the end-to-end pipeline design and pattern detection approach.
 
-This repository currently **only contains the offline test logic** written in **Python with pandas**, to validate and simulate the end-to-end design and pattern detection.
+The PySpark-based implementation (including Databricks notebooks, streaming pipeline, state management, and Blob/PostgreSQL writes) is now fully developed and verified. The final version will be pushed here shortly.
 
-> The PySpark-based implementation (including full Databricks and Azure integration) **is already is done, will push the code soon** and will be pushed here shortly.
+✅ Current Progress
+🔗 Google Drive Integration
+Authenticated using a GCP service account
 
-## ✅ Current Progress
+Reads the transactions.csv file in programmatically controlled chunks (10,000 rows each)
 
-As of now, the following components have been successfully developed and verified:
+Validated offline as Mechanism X (the data ingestion component)
 
-### 🔗 Google Drive Integration
-- Authenticated using a GCP service account
-- Programmatically reads the `transactions.csv` file in chunks of 10,000 rows
-- Works offline as part of **Mechanism X** (the ingestion system)
+💾 Azure Blob Storage
+Storage Account is provisioned and working
 
-### 💾 Azure Blob Storage
-- Storage Account set up
-- Transaction chunks are simulated locally and staged for blob upload
-- Will serve as input/output location for Mechanism Y (the real-time processor)
+Transaction chunks are staged locally and uploaded to Blob (simulated)
 
-### 🧠 PostgreSQL (Simulated)
-- Intended for use as a state store for pattern detection logic
-- Currently being simulated using in-memory pandas DataFrames during offline testing
-- PostgreSQL Flexible Server already provisioned for future deployment
+Will serve as the input/output store for Mechanism Y (the streaming processor)
 
-### 🔍 Pattern Detection Logic
-- Detection logic for **PatId1**, **PatId2**, and **PatId3** fully implemented offline
-- Modular, testable logic verified using pandas DataFrames
-- State-tracking architecture implemented to support incremental processing
+🧠 PostgreSQL (Simulated)
+Designed to act as a state store for incremental pattern detection
 
-### ⚙️ Project Structure and Infrastructure
-- Azure Databricks workspace and cluster set up
-- Sample templates for Databricks config and storage provisioning are available under `templates/`
-- Screenshots and architectural reference material stored under `images/`
+Fully simulated using in-memory pandas DataFrames for offline testing
 
----
+PostgreSQL Flexible Server is provisioned for Databricks integration
 
+🔍 Pattern Detection Logic
+Detection logic for PatId1, PatId2, and PatId3 fully implemented and verified offline
 
+Modular, incremental logic matches the real-time streaming design
 
----
+Offline prototype successfully reproduces state updates, detection thresholds, and output batching
 
-## 🔜 Next Steps
+PySpark conversion now validated with AutoLoader, state writes to PostgreSQL, and batch output to Blob
 
-- [ ] Finalize PySpark conversion of tested logic for Databricks deployment
-- [ ] Integrate PostgreSQL as a live state store in Databricks workflows
-- [ ] Write final detection outputs in batches of 50 to Azure Blob Storage
-- [ ] Prepare video walkthroughs: live demo, architecture explanation, and sample outputs
-- [ ] Package final submission with a downloadable zip of all output files
+⚙️ Project Infrastructure
+Azure Databricks workspace and cluster are set up
 
----
-
-## 🧑‍💻 Author
-
-**Kushagra Verma**  
-📧 Email: kushagraid@gmail.com  
-🔗 [LinkedIn](https://www.linkedin.com/in/2kushagraverma3/)
-
----
-
-*More technical documentation, examples, and demo materials will be added as the project reaches completion.*
+Sample Databricks notebooks, configuration templates, and connection helpers included under /templates/ (will be updated with final notebooks)
