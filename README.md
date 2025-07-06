@@ -1,5 +1,3 @@
-# PySpark Data Engineer - DevDolphins Assignment
-
 ## 🧩 Overview
 
 This project addresses the **offline assignment** for the **PySpark Data Engineer** role at **DevDolphins**.
