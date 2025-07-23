@@ -1,6 +1,5 @@
 ## 🧩 Overview
 
-This project addresses the **offline assignment** for the **PySpark Data Engineer** role at **DevDolphins**.
 The objective is to simulate and implement a near real-time transaction ingestion and pattern detection system using:
 
 * **PySpark** (for production on **Azure Databricks**)
@@ -8,13 +7,6 @@ The objective is to simulate and implement a near real-time transaction ingestio
 * **PostgreSQL** for maintaining incremental state
 * **Google Drive** as the source for the initial raw dataset
 
----
-
-## 🚧 Current Repository State
-
-This repository **currently contains the offline prototype logic** written in **Python (pandas)** to fully test and validate the end-to-end pipeline design and pattern detection approach.
-
-The **PySpark-based implementation** (including Databricks notebooks, streaming pipeline, state management, and Blob/PostgreSQL writes) is now fully developed and verified. The final version will be **pushed here shortly**.
 
 ---
 
